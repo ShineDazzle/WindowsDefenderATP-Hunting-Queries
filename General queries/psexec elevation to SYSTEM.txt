@@ -1,0 +1,5 @@
+ProcessCreationEvents 
+| where EventTime > ago(7d) 
+| where FileName == "psexec.exe"
+| where ProcessCommandLine contains "-s "
+| distinct ComputerName
